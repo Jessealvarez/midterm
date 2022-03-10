@@ -12,7 +12,7 @@ You can assume that the 2nd number passed in will always be greater than the fir
 Note: This problem should account for negative number input
 */
 
-function sumOfOdds(){
+function sumOfOdds(num1, num2){
 
 }
 
@@ -30,12 +30,19 @@ For exmaple arraySubtract([7,9],[2,6]) should return [5,3]
 You can assume the arrays that are being input are of the same length
 */
 
-function arraySubtract(){
-
+function arraySubtract(array1, array2){
+    let newarray = [];
+    
+    for(let i = 0; i < array1.length; i++){
+        newarray[i] = array1[i] - array2[i];
+     
+    }
+return newarray;
 }
 
 /* console.logs to test */
 console.log("arraySubtract");
+console.log(arraySubtract([3,3,3],[1,2,3]));
 console.log("////////////////////////////////////////////////////////////////////////////\n");
 //Add console.logs here to test!  Feel free to format this section however you like
 
@@ -49,12 +56,18 @@ Add the second string to the end of the array
 Return the modified array
 */
 
-function surroundArray(){
+function surroundArray(array, string1, string2){
+Array.from(string1);
+Array.from(string2);
+array.unshift(string1);
+array.push(string2);
+return array;
 
 }
 
 /* console.logs to test */
 console.log("surroundArray");
+console.log(surroundArray(["Jesse", "HTML", "Javascript"], "Hi", "Bye"));
 console.log("////////////////////////////////////////////////////////////////////////////\n");
 //Add console.logs here to test!  Feel free to format this section however you like
 
@@ -67,12 +80,11 @@ If there is nothing in the array, return an empty string ('')
 You can assume that no two strings will have the same length in the array
 */
 
-function longestString(){
-    
-}
+function longestString(array){}
 
 /* console.logs to test */
 console.log("longestString");
+
 console.log("////////////////////////////////////////////////////////////////////////////\n");
 //Add console.logs here to test!  Feel free to format this section however you like
 
@@ -85,9 +97,7 @@ If the letter in the original string is uppercase the letter in the output strin
 Do NOT use replaceAll or similar string methods.  If you are unsure what that means, ask before you use a string method!  (toUpperCase() and toLowerCase() should be all you need if anything)
 */
 
-function sToR(){
-
-}
+function sToR(str){}
 
 /* console.logs to test */
 console.log("sToR");
@@ -102,12 +112,17 @@ Write a function divisibleBy4And7 that takes in a number and returns true if it 
 If it is not, return false.
 */
 
-function divisibleBy4And7(){
-
+function divisibleBy4And7(num){
+let itworks = false;
+    if(num % 4 === 0 && num % 7 === 0){
+        itworks = true;
+        
+    }
+return itworks;
 }
 
-/* console.logs to test */
-console.log("divisibleBy4And7");
+console.log("divisibleby4And7");
+console.log(divisibleBy4And7(28));
 console.log("////////////////////////////////////////////////////////////////////////////\n");
 //Add console.logs here to test!  Feel free to format this section however you like
 
@@ -120,12 +135,29 @@ return true if the string contains both an exclamation point (!) AND a question 
 Return false if otherwise
 */
 
-function exclamationAndQuestion(){
+function exclamationAndQuestion(str){
+    let itworks1 = false;
+    let itworks2 = false;
+    let doesitwork = false;
+    for(let i = 0; i < str.length; i ++){
+        if(str[i] === "!"){
+            itworks1 = true;
+        }
+        if(str[i] === "?"){
+            itworks2 = true;
+        }
+
+    }
+if(itworks1 === true && itworks2 === true){
+    doesitwork = true;
+}
+return doesitwork;
     
 }
 
 /* console.logs to test */
 console.log("exclamationAndQuestion");
+console.log(exclamationAndQuestion("I am probably going to fail this midterm!?!"))
 console.log("////////////////////////////////////////////////////////////////////////////\n");
 //Add console.logs here to test!  Feel free to format this section however you like
 
@@ -138,12 +170,27 @@ No need to add the count of A and B together.  Again, we want an array with the 
 Your function should account for both cases (upper and lower) of each letter.
 */
 
-function countAB(){
-
+function countAB(str){
+    let array = [];
+    let howmanya= 0;
+    let howmanyb= 0;
+        for(let i = 0; i < str.length; i++){
+            if(str[i] === "a" || str[i] === "A"){
+                howmanya = howmanya +1;
+            }
+            
+            if(str[i] === "b" || str[i] === "B"){
+                howmanyb = howmanyb +1;
+            }
+            
+        }
+array = [howmanya, howmanyb];
+return array;
 }
 
 /* console.logs to test */
 console.log("countAB");
+console.log(countAB("Apple banna"));
 console.log("////////////////////////////////////////////////////////////////////////////\n");
 //Add console.logs here to test!  Feel free to format this section however you like
 
@@ -157,12 +204,23 @@ Finally, return your modified array.
 Example: addStringIfLastS(['test', 'testing', 'testings'], 'TEST') => ['test', 'testing', 'testingsTEST']
 */
 
-function addStringIfLastS(){
+function addStringIfLastS(arr, str){
+
+usethiselement = "";
+returnedstring = usethiselement + str;
+      for(let i = 0; i < arr.length; i++){
+        if(arr[i].includes("s")){
+        
+        usethiselement = arr[i];
+        }
+      }
+return returnedstring;
 
 }
 
 /* console.logs to test */
 console.log("addStringIfLastS");
+console.log(addStringIfLastS(["cats", "cat", "dog"], "BEST"));
 console.log("////////////////////////////////////////////////////////////////////////////\n");
 //Add console.logs here to test!  Feel free to format this section however you like
 
@@ -176,12 +234,31 @@ If the array is shorter than length 2, return undefined to the user
 You can assume that every number in the array will be unique
 */
 
-function twoSmallest(){
+function twoSmallest(array){
+    
+    let smallArray = [];
+    
+        if(array.length < 2){
+            return undefined;
+        }
+        else{
+        for(let i = 0; i < array.length; i ++){
+            
+            
+            if(array[i] < array.length-1 ){
+                
+                smallArray[i] = smallArray + array[i];
+            }
+            
+        }
+    }
+return smallArray[0,1];
+
 
 }
 
 /* console.logs to test */
-console.log("twoSmallest");
+console.log(twoSmallest([1, 2, 3, 4, 5]));
 console.log("////////////////////////////////////////////////////////////////////////////\n");
 //Add console.logs here to test!  Feel free to format this section however you like
 
